@@ -8,7 +8,7 @@ reader *createReader(readHandlerFunctions *fn) {
 }
 
 // Totally and completely contrived example just to illustrate the question
-void getReply(reader *r, void **reply) {
+void getReply(const reader *r, void **reply) {
     void *root, *obj;
     readTask *task;
 
@@ -18,6 +18,9 @@ void getReply(reader *r, void **reply) {
     // Root level array response
     root = r->fn->createArray(task, 1);
     task->parent = root;
+
+    obj = r->fn->createArray(task, 1);
+    task->parent = obj;
 
     // Sub array
     obj = r->fn->createArray(task, 3);

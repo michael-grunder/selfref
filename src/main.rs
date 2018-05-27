@@ -53,7 +53,7 @@ impl Drop for CustomReply {
 #[link(name = "ffitest", kind = "static")]
 extern "C" {
     fn createReader(cb: *const readHandlerFunctions) -> *mut reader;
-    fn getReply(reader: *mut reader, reply: *mut *mut c_void);
+    fn getReply(reader: *const reader, reply: *mut *mut c_void);
     fn freeReader(reader: *mut reader);
 }
 

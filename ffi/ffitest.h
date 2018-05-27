@@ -8,11 +8,10 @@ extern "C" {
 
 typedef struct readTask {
     void *parent;
-    void *obj;
 } readTask;
 
 typedef void *(*createArrayCallback)(const readTask*, size_t);
-typedef void *(*createIntegerCallback)(const readTask *, int);
+typedef void *(*createIntegerCallback)(const readTask*, int);
 
 typedef struct readHandlerFunctions {
     createArrayCallback createArray;
@@ -21,11 +20,10 @@ typedef struct readHandlerFunctions {
 
 typedef struct reader {
     readHandlerFunctions *fn;
-    void *privdata;
 } reader;
 
 reader *createReader(readHandlerFunctions *fn);
-void getReply(reader *reader, void **reply);
+void getReply(const reader *reader, void **reply);
 void freeReader(reader *reader);
 
 #ifdef __cplusplus
