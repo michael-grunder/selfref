@@ -1,0 +1,7 @@
+[package]
+authors = ["michael-grunder <michael.grunder@gmail.com>"]
+name = "selfref"
+version = "0.1.0"
+
+[dependencies]
+libc = "*"
